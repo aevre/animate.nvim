@@ -73,13 +73,3 @@ The callback receives `(value, ctx)`. `ctx.animation` is the animation object, `
 Built-in easing names include `linear`, `inQuad`, `outQuad`, `inOutQuad`, `inCubic`, `outCubic`, `inSine`, `outSine`, `inBack`, and `outBack`. Custom easing functions receive `(time, begin, change, duration)`.
 
 `enabled({ name = "scroll", buf = bufnr })` checks `vim.b[buf].core_animate` and `vim.b[buf].core_animate_scroll`, falling back to the corresponding global variables. This lets integrations provide buffer- or global-level switches without depending on a configuration framework.
-
-## Migration
-
-The former `builtin.animate` and `builtin.animate.easing` modules can forward to `animate` and `animate.easing`. Existing callers can keep using those compatibility paths when this plugin is installed.
-
-The dependency chain is:
-
-```text
-scroll.nvim -> animate.nvim
-```
