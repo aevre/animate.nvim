@@ -1,5 +1,6 @@
 ---@class animate
 ---@overload fun(from: number, to: number, callback: animate.callback, opts?: animate.Opts): animate.Animation
+---@type animate
 local M = setmetatable({}, {
 	__call = function(t, ...)
 		return t.add(...)
