@@ -73,3 +73,7 @@ animate.enabled(opts?)
 内置缓动名称包括 `linear`、`inQuad`、`outQuad`、`inOutQuad`、`inCubic`、`outCubic`、`inSine`、`outSine`、`inBack` 和 `outBack`。自定义缓动函数接收 `(time, begin, change, duration)`。
 
 `enabled({ name = "scroll", buf = bufnr })` 会检查 `vim.b[buf].core_animate` 和 `vim.b[buf].core_animate_scroll`，不存在时回退到对应的全局变量。这样集成模块可以提供 buffer 或全局级别的开关，而不依赖配置框架。
+
+## 开发
+
+在仓库根目录运行 `make check`。带 guard 的 `plugin/animate.lua` 入口只应用默认配置，实际实现保留在 `lua/animate/`。插件管理器随后以用户选项再次调用 `setup()` 时必须保持安全。

@@ -73,3 +73,7 @@ The callback receives `(value, ctx)`. `ctx.animation` is the animation object, `
 Built-in easing names include `linear`, `inQuad`, `outQuad`, `inOutQuad`, `inCubic`, `outCubic`, `inSine`, `outSine`, `inBack`, and `outBack`. Custom easing functions receive `(time, begin, change, duration)`.
 
 `enabled({ name = "scroll", buf = bufnr })` checks `vim.b[buf].core_animate` and `vim.b[buf].core_animate_scroll`, falling back to the corresponding global variables. This lets integrations provide buffer- or global-level switches without depending on a configuration framework.
+
+## Development
+
+Run `make check` from the repository root. The guarded `plugin/animate.lua` entrypoint only applies defaults; implementation stays under `lua/animate/`. Keep `setup()` safe when a plugin manager calls it again with user options.
