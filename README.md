@@ -10,13 +10,13 @@ A small standalone animation engine for Neovim. It interpolates numeric values w
 
 ## Installation
 
-The canonical repository is hosted on Codeberg: <https://codeberg.org/aevre/animate.nvim>.
+Available on Codeberg: <https://codeberg.org/aevre/animate.nvim> and GitHub: <https://github.com/aevre/animate.nvim>.
 
 With lazy.nvim:
 
 ```lua
 {
-  "https://codeberg.org/aevre/animate.nvim",
+  "https://github.com/aevre/animate.nvim",
   opts = {},
 }
 ```

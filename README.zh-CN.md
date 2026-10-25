@@ -10,13 +10,13 @@
 
 ## 安装
 
-项目托管于 Codeberg：<https://codeberg.org/aevre/animate.nvim>。
+同时托管于 Codeberg：<https://codeberg.org/aevre/animate.nvim> 和 GitHub：<https://github.com/aevre/animate.nvim>。
 
 使用 lazy.nvim：
 
 ```lua
 {
-  "https://codeberg.org/aevre/animate.nvim",
+  "https://github.com/aevre/animate.nvim",
   opts = {},
 }
 ```
