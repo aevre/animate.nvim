@@ -70,7 +70,7 @@ animate.enabled(opts?)
 
 回调接收 `(value, ctx)`。`ctx.animation` 是动画对象，`ctx.prev` 是前一个值，`ctx.done` 在最后一次回调时为 true。
 
-内置缓动名称包括 `linear`、`inQuad`、`outQuad`、`inOutQuad`、`inCubic`、`outCubic`、`inSine`、`outSine`、`inBack` 和 `outBack`。自定义缓动函数接收 `(time, begin, change, duration)`。
+内置缓动名称包括 `linear`、`in/out/inOutQuad`、`in/out/inOutCubic`、`in/out/inOutQuart`、`in/out/inOutQuint`、`in/out/inOutSine`、`in/out/inOutExpo`、`in/out/inOutCirc`、`in/out/inOutBack`、`in/out/inOutElastic` 和 `in/out/inOutBounce`。自定义缓动函数接收 `(time, begin, change, duration)`。
 
 `enabled({ name = "scroll", buf = bufnr })` 会检查 `vim.b[buf].core_animate` 和 `vim.b[buf].core_animate_scroll`，不存在时回退到对应的全局变量。这样集成模块可以提供 buffer 或全局级别的开关，而不依赖配置框架。
 

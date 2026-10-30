@@ -70,7 +70,7 @@ animate.enabled(opts?)
 
 The callback receives `(value, ctx)`. `ctx.animation` is the animation object, `ctx.prev` is the previous value, and `ctx.done` is true for the final callback.
 
-Built-in easing names include `linear`, `inQuad`, `outQuad`, `inOutQuad`, `inCubic`, `outCubic`, `inSine`, `outSine`, `inBack`, and `outBack`. Custom easing functions receive `(time, begin, change, duration)`.
+Built-in easing names include `linear`, `in/out/inOutQuad`, `in/out/inOutCubic`, `in/out/inOutQuart`, `in/out/inOutQuint`, `in/out/inOutSine`, `in/out/inOutExpo`, `in/out/inOutCirc`, `in/out/inOutBack`, `in/out/inOutElastic`, and `in/out/inOutBounce`. Custom easing functions receive `(time, begin, change, duration)`.
 
 `enabled({ name = "scroll", buf = bufnr })` checks `vim.b[buf].core_animate` and `vim.b[buf].core_animate_scroll`, falling back to the corresponding global variables. This lets integrations provide buffer- or global-level switches without depending on a configuration framework.
 
