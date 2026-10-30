@@ -137,27 +137,43 @@ local function in_out_back(t, b, c, d, s)
 end
 
 local function in_elastic(t, b, c, d, a, p)
+	if c == 0 then
+		return b
+	end
 	if t == 0 or t == d then
 		return t == 0 and b or b + c
 	end
 	p = p or d * 0.3
 	a = a or c
+	if math.abs(c) > math.abs(a) then
+		a = c
+	end
 	local s = p / (2 * PI) * math.asin(c / a)
-	t = t - 1
+	t = t / d - 1
 	return -(a * pow(2, 10 * t) * sin((t * d - s) * (2 * PI) / p)) + b
 end
 
 local function out_elastic(t, b, c, d, a, p)
+	if c == 0 then
+		return b
+	end
 	if t == 0 or t == d then
 		return t == 0 and b or b + c
 	end
 	p = p or d * 0.3
 	a = a or c
+	if math.abs(c) > math.abs(a) then
+		a = c
+	end
 	local s = p / (2 * PI) * math.asin(c / a)
-	return a * pow(2, -10 * t / d) * sin((t * d - s) * (2 * PI) / p) + c + b
+	t = t / d
+	return a * pow(2, -10 * t) * sin((t * d - s) * (2 * PI) / p) + c + b
 end
 
 local function in_out_elastic(t, b, c, d, a, p)
+	if c == 0 then
+		return b
+	end
 	if t == 0 or t == d then
 		return t == 0 and b or b + c
 	end

@@ -14,6 +14,10 @@ local function test_easings()
 	assert(easing.outBack(50, 0, 1, 100) > 0.5)
 	assert(easing.inBounce(50, 0, 1, 100) < 0.5)
 	assert(easing.outBounce(50, 0, 1, 100) > 0.5)
+	for _, name in ipairs({ "inElastic", "outElastic", "inOutElastic" }) do
+		local value = easing[name](50, 10, 20, 100)
+		assert(value == value and math.abs(value) < 1000, name)
+	end
 end
 
 local function test_api()

@@ -74,11 +74,37 @@ function Animation:start(from, to, callback)
 	if not self.timer then
 		return self
 	end
-	state.start(self.timer, step_duration, function()
-		vim.schedule(function()
-			self:step(callback)
+
+	local remainder = 0
+	local schedule_step
+	schedule_step = function()
+		if not self.timer or not self.steps then
+			return
+		end
+		remainder = remainder + step_duration
+		local delay = math.floor(remainder)
+		remainder = remainder - delay
+		state.start(self.timer, delay, function()
+			vim.schedule(function()
+				if not self.steps then
+					return
+				end
+				local ok, err = xpcall(function()
+					self:step(callback)
+				end, debug.traceback)
+				if not ok then
+					self:stop()
+					error(err)
+				end
+				if self.steps and self._step < #self.steps then
+					schedule_step()
+				else
+					self:stop()
+				end
+			end)
 		end)
-	end)
+	end
+	schedule_step()
 	return self
 end
 

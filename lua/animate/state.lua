@@ -29,10 +29,10 @@ function M.remove(key)
 end
 
 ---@param timer uv.uv_timer_t
----@param interval number
+---@param delay number
 ---@param callback fun()
-function M.start(timer, interval, callback)
-	timer:start(0, interval --[[@as integer]], callback)
+function M.start(timer, delay, callback)
+	timer:start(math.max(0, math.floor(delay)) --[[@as integer]], 0, callback)
 end
 
 ---@param timer uv.uv_timer_t?
