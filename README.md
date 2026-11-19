@@ -76,4 +76,6 @@ Built-in easing names include `linear`, `in/out/inOutQuad`, `in/out/inOutCubic`,
 
 ## Development
 
+Run `:checkhealth animate` in Neovim to inspect runtime requirements. `make health` exercises the same provider headlessly.
+
 Run `make check` from the repository root. The guarded `plugin/animate.lua` entrypoint only applies defaults; implementation stays under `lua/animate/`. Keep `setup()` safe when a plugin manager calls it again with user options.

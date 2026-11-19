@@ -76,4 +76,6 @@ animate.enabled(opts?)
 
 ## 开发
 
+在 Neovim 中运行 `:checkhealth animate` 检查运行环境；`make health` 会以 headless 模式验证同一个 provider。
+
 在仓库根目录运行 `make check`。带 guard 的 `plugin/animate.lua` 入口只应用默认配置，实际实现保留在 `lua/animate/`。插件管理器随后以用户选项再次调用 `setup()` 时必须保持安全。
