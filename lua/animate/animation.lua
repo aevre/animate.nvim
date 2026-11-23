@@ -35,13 +35,16 @@ end
 ---@return animate.Animation
 function Animation:start(from, to, callback)
 	self:stop()
+
 	if from == to then
 		callback(from, { animation = self, prev = from, done = true })
 		return self
 	end
 
-	local duration_opts = type(self.opts.duration) == "table" and self.opts.duration or { step = self.opts.duration }
+	local duration_opts = type(self.opts.duration) == "table" and self.opts.duration
+		or { step = self.opts.duration }
 	local duration = 0
+
 	if duration_opts.step then
 		duration = duration_opts.step * math.abs(to - from)
 		duration = math.min(duration, duration_opts.total or duration)
